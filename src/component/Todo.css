@@ -1,0 +1,35 @@
+.todoItem {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.editableContainer {
+    display: flex;
+    align-items: center;
+    width: 75%;  
+}
+.todoText {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(54, 54, 54);
+    word-wrap: break-word;
+
+}
+.editableInput {
+    flex: 1;
+    margin-left: 20px;
+    padding: 10px ;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 1.2rem;
+    color: gray;
+}
+
+.button > button {
+    padding: 8px 15px;
+}
+
+.todoText {
+    margin-left:  20px;
+}

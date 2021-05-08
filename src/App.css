@@ -1,0 +1,46 @@
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+.main_div  h4 {
+    font-weight: 700;
+    color: rgb(59, 59, 59);
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgb(70, 70, 70);
+}
+.main_div {
+    padding: 10px;
+    width: 40%;
+}
+.addInput {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.addInput > input {
+    padding: 10px;
+    flex: 1;
+    border: 1px solid gray;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.2rem;
+}
+ button {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+    padding: 0 15px;
+    border: none;
+    background-color: #fff;
+    color: gray;
+    font-size: 1rem;
+}
+
+.todoList {
+    margin-bottom: 1.3rem;
+}
