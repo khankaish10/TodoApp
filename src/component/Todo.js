@@ -21,7 +21,6 @@ function Todo({ todoItem, handleDelete, handleCheck, isChecked }) {
         }
         setEditable(!editable)
 
-
     }
     return (
         <div className='todoItem'>
@@ -29,7 +28,7 @@ function Todo({ todoItem, handleDelete, handleCheck, isChecked }) {
                 <input type='checkbox' checked={isChecked} onChange={(e) => handleCheck(todoItem.id)} value={todoItem.input} />
 
                 {
-                    editable == false ? (
+                    editable === false ? (
 
                         <div style={todoItem.isChecked ? { textDecoration: 'line-through' } : null} className='todoText' >{todoItem.input}</div>
 

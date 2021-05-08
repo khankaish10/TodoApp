@@ -2,8 +2,6 @@ import * as actionTypes from '../actionType'
 
 
 export function addTodo(input) {
-
-
     return {
         type: actionTypes.ADD_ITEMS,
         todos: {
