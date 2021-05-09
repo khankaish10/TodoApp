@@ -28,5 +28,26 @@ export function isChecked (id, todos) {
 
 
 
+export const deleteTodo = id => {
+    return {
+        type: actionTypes.DELETE_ITEMS,
+        todos: {
+            id
+        }
+    }
+}
+
+
+export const editTodo = (id, edittingText) => {
+
+    return {
+        type: actionTypes.EDIT,
+        todos: {id, input: edittingText}
+    }
+}
+
+
+
+
 
 

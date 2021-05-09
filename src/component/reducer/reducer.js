@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
             return {
                 todos: [...state.todos, action.todos]
             }
-
+            break
         case actionTypes.DELETE_ITEMS:
             const newTodo = state.todos.filter(todo => {
                 return todo.id !== action.todos.id
@@ -24,29 +24,24 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 todos: newTodo
             }
-
+            break;
         case actionTypes.EDIT:
-            const updateTodo = [...state.todos];
-
-            let index = -1;
-            for (let i = 0; i < updateTodo.length; i++) {
-                index++;
-                if (updateTodo[i].id === action.todos.id) {
-                    break
+            const updateTodo = state.todos.map( todo => {
+                if(todo.id === action.todos.id) {
+                    return {...todo, input: action.todos.input}
                 }
-            }
-            if (index !== -1) {
-                updateTodo[index] = action.todos;
-            }
+                return todo
+            })
             return {
-                ...state.todos,
                 todos: updateTodo
             }
+            break;
 
         case actionTypes.ISCHECKED:
             return {
                 todos: action.todos
             }
+        
         default:
             return state;
     }

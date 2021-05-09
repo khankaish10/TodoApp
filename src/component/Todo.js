@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import editTodo from './action/editTodo.js'
+import { useDispatch, useSelector } from 'react-redux'
+import {editTodo} from './action/actions'
 import './Todo.css'
 
 function Todo({ todoItem, handleDelete, handleCheck, isChecked }) {
@@ -11,27 +11,20 @@ function Todo({ todoItem, handleDelete, handleCheck, isChecked }) {
     const [edittingText, setEdittingText] = useState(todoItem.input)
 
     const handleEdit = (id) => {
-
-        dispatch(editTodo({
-            ...todoItem,
-            input: edittingText
-        }));
-        if (editable) {
-            setEdittingText(todoItem.input)
-        }
         setEditable(!editable)
+        if(editable) {
+            dispatch(editTodo(id, edittingText))
+        }
 
     }
     return (
         <div className='todoItem'>
             <div className='editableContainer'>
-                <input type='checkbox' checked={isChecked} onChange={(e) => handleCheck(todoItem.id)} value={todoItem.input} />
+                <input type='checkbox' checked={isChecked} onChange={() => handleCheck(todoItem.id)} value={todoItem.input} />
 
                 {
                     editable === false ? (
-
                         <div style={todoItem.isChecked ? { textDecoration: 'line-through' } : null} className='todoText' >{todoItem.input}</div>
-
                     ) : (
 
                         <input
@@ -45,14 +38,10 @@ function Todo({ todoItem, handleDelete, handleCheck, isChecked }) {
                     )
                 }
             </div>
-
-
             <div className='button'>
                 <button onClick={isChecked ? null : (e) => handleEdit(todoItem.id)} >Edit</button>
                 <button onClick={handleDelete ? () => handleDelete(todoItem.id) : null} >Delete</button>
             </div>
-
-
         </div>
     )
 }

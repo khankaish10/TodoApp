@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './App.css';
 import Todo from './component/Todo.js'
 
-import { addTodo, isChecked } from './component/action/addTodo.js'
-import deleteTodo from './component/action/deleteTodo'
+import { addTodo, isChecked, deleteTodo } from './component/action/actions'
 
 
 
@@ -22,6 +21,15 @@ function App() {
 
   const handleCheck = (id) => {
     dispatch(isChecked(id, todos))
+
+    //  const newTodo = todos.map( todo => {
+    //   if(todo.id === id) {
+        
+    //     return { ...todo, isChecked: !todo.isChecked}
+    //   }
+    //   return todo
+    // })
+    // dispatch(isChecked(newTodo))
   }
 
   const handleDelete = id => {
@@ -49,6 +57,7 @@ function App() {
               todos.map((todo) => {
                 if (todo.isChecked === false) {
                   return (
+                    // console.log(todo),
                     <Todo
                       key={todo.id}
                       isChecked={todo.isChecked}
