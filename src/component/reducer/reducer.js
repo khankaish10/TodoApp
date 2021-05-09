@@ -15,8 +15,7 @@ const reducer = (state = initialState, action) => {
             return {
                 todos: [...state.todos, action.todos]
             }
-            break
-        case actionTypes.DELETE_ITEMS:
+                    case actionTypes.DELETE_ITEMS:
             const newTodo = state.todos.filter(todo => {
                 return todo.id !== action.todos.id
             })
@@ -24,7 +23,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 todos: newTodo
             }
-            break;
+            
         case actionTypes.EDIT:
             const updateTodo = state.todos.map( todo => {
                 if(todo.id === action.todos.id) {
@@ -35,7 +34,7 @@ const reducer = (state = initialState, action) => {
             return {
                 todos: updateTodo
             }
-            break;
+            
 
         case actionTypes.ISCHECKED:
             return {
